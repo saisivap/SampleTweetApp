@@ -66,10 +66,10 @@ class _TweetsListScreenState extends State<TweetsListScreen> {
           ),
           GestureDetector(
             onTap: () {
-              // firebaseController.google_sign_out();
-              databaseMethods
-                  .getUserInfo(firebaseController.firebaseUser.value!.uid);
-              print("logOut");
+              firebaseController.google_sign_out();
+              // databaseMethods
+              //     .getUserInfo(firebaseController.firebaseUser.value!.uid);
+              // print("logOut");
             },
             child: const Padding(
               padding: EdgeInsets.all(10),
@@ -135,7 +135,8 @@ class _TweetsListScreenState extends State<TweetsListScreen> {
           // ),
 
           child: StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance.collection("tweets").snapshots(),
+            // stream: FirebaseFirestore.instance.collection("tweets").snapshots(),
+            stream: FirebaseFirestore.instance.collection("tweets").orderBy("createdAt",descending: true).snapshots(),
             builder: (BuildContext context, tweetSnapshot) {
               if (tweetSnapshot.connectionState == ConnectionState.waiting) {
                 return Center(

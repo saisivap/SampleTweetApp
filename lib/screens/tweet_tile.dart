@@ -155,36 +155,37 @@ class _TweetTileState extends State<TweetTile> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          databaseMethods
-                              .deleteTweet(widget.tweetData['docId']);
-                          // Get.defaultDialog(
-                          //   title: "Delete",
-                          //   content: Text(
-                          //     "Are you sure ?",
-                          //     textAlign: TextAlign.center,
-                          //   ),
-                          //   actions: [
-                          //     ElevatedButton(
-                          //       onPressed: () {
-                          //         databaseMethods
-                          //             .deleteTweet(widget.tweetData['docId']);
-                          //       },
-                          //       child: Text(
-                          //         "Yes",
-                          //       ),
-                          //     ),
-                          //     ElevatedButton(
-                          //       onPressed: () {
-                          //         databaseMethods
-                          //             .getTweet(widget.tweetData['docId']);
-                          //         Get.back();
-                          //       },
-                          //       child: Text(
-                          //         "No",
-                          //       ),
-                          //     )
-                          //   ],
-                          // );
+                          // databaseMethods
+                          //     .deleteTweet(widget.tweetData['docId']);
+                          Get.defaultDialog(
+                            title: "Delete",
+                            content: Text(
+                              "Are you sure ?",
+                              textAlign: TextAlign.center,
+                            ),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  databaseMethods
+                                      .deleteTweet(widget.tweetData['docId']);
+                                      Get.back();
+                                },
+                                child: Text(
+                                  "Yes",
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  // databaseMethods
+                                  //     .getTweet(widget.tweetData['docId']);
+                                  Get.back();
+                                },
+                                child: Text(
+                                  "No",
+                                ),
+                              )
+                            ],
+                          );
                         },
                         child: Icon(
                           Icons.delete,

@@ -71,11 +71,11 @@ class DatabaseMethods {
   }
 
   deleteTweet(String docId) async {
-    // await FirebaseFirestore.instance.collection("tweets").doc(docId).delete();
-   final sampleData= await FirebaseFirestore.instance
-        .collection("tweets")
-        .where("docId", isEqualTo: docId).get();
-    print(sampleData.docs.length);
+    await FirebaseFirestore.instance.collection("tweets").doc(docId).delete();
+  //  final sampleData= await FirebaseFirestore.instance
+  //       .collection("tweets")
+  //       .where("docId", isEqualTo: docId).get();
+  //   print(sampleData.docs.length);
   }
 
   DocumentSnapshot<Map<String, dynamic>>? getTweet(String docId) {
